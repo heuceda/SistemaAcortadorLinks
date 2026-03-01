@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sistema Acortador de Links
+Aplicación web para acortar URLs largas, usando Next.js con Better Auth, Drizzle ORM y Neon (PostgreSQL)
 
-## Getting Started
+# Funcionalidades
+- Registro e inicio de sesión con email y contraseña 
+- Crear enlaces cortos únicos a partir de URLs largas
+- Redirección automática al acceder al enlace corto
+- Dashboard con lista de enlaces creados
+- Contador de clics por enlace
+- Botón para copiar el enlace corto
+- Página 404 amigable
 
-First, run the development server:
+# Tecnologías
+    * Framework: Next.js (App Router)
+    * Autenticación: Better Auth
+    * Base de datos: Neon (PostgreSQL)
+    * ORM: Drizzle ORM
+    * Estilos: Tailwind CSS
+    * Deploy: Vercel
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Instalación y ejecución local
+
+1. Clona el repositorio:
+``` bash
+git clone https://github.com/heuceda/SistemaAcortadorLinks  
+cd SistemaAcortadorLinks
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instala las dependencias
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. Crea el archivo `.env.local` basándote en `.env.example`:
+```bash
+cp .env.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Completa las variables de entorno en `.env.local` (ver sección abajo)
 
-## Learn More
+5. Correo las migraciones:
+```bash
+npx drizzle-kit push
+```
 
-To learn more about Next.js, take a look at the following resources:
+6. Inicia el servidor de desarrollo:
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+7. Abre [http://localhost:3000](http://localhost:3000)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+# Variables de entorno
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`DATABASE_URL`                  Conexión a la base de datos. Aquí va la Connection String de Neon
+`BETTER_AUTH_SECRET`            Generar con: `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"`
+`BETTER_AUTH_URL`               URL de la app (local: `http://localhost:3000`)
+`NEXT_PUBLIC_BETTER_AUTH_URL`   Igual que `BETTER_AUTH_URL`, pero su prefijo `NEXT_PUBLIC` hace que Next.js la exponga al navegador
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Deploy
