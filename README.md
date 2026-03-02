@@ -11,7 +11,7 @@ Aplicación web para acortar URLs largas, usando Next.js con Better Auth, Drizzl
 - Página 404 amigable
 
 # Tecnologías
-    * Framework: Next.js (App Router)
+    * Framework: Next.js 16 (App Router)
     * Autenticación: Better Auth
     * Base de datos: Neon (PostgreSQL)
     * ORM: Drizzle ORM
@@ -31,10 +31,8 @@ cd SistemaAcortadorLinks
 npm install
 ```
 
-3. Crea el archivo `.env.local` basándote en `.env.example`:
-```bash
-cp .env.example .env.local
-```
+ 3. Configurar variables de entorno
+ Crea un archivo .env.local en la raíz y copia el contenido de .env.example
 
 4. Completa las variables de entorno en `.env.local` (ver sección abajo)
 
@@ -58,5 +56,5 @@ npm run dev
 `BETTER_AUTH_URL`               URL de la app (local: `http://localhost:3000`)
 `NEXT_PUBLIC_BETTER_AUTH_URL`   Igual que `BETTER_AUTH_URL`, pero su prefijo `NEXT_PUBLIC` hace que Next.js la exponga al navegador
 
-# Deploy
+# Deploy en Vercel
 [https://sistema-acortador-links.vercel.app](https://sistema-acortador-links.vercel.app)
