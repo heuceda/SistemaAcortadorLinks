@@ -2,6 +2,7 @@
 import { useState, useEffect, use } from "react";
 import { useSession, signOut } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
+import { LogOut } from "lucide-react";
 
 export default function Dashboard() {
     const { data: session, isPending } = useSession();
@@ -62,16 +63,20 @@ export default function Dashboard() {
     return (
         <div className="min-h-screen bg-gray-50">
             <header className ="bg-white shadow px-6 py-4 flex justify-between items-center">
-                <h1 className="text-xl font-bold text-blue-400">Acortador de Links</h1>
+                <h1 className="text-xl font-bold text-blue-700">Acortador de Links</h1>
                 <div className="flex items-center gap-4">
-                    <span className="text-sm text-gray-600">Hola, {session.user.name}</span>
-                    <button onClick={handleSignOut} 
-                        className="text-sm text-red-500 hover:underline">Cerrar Sesión
+                    <button onClick={handleSignOut}
+                        className="flex items-center gap-2 text-sm text-blue-900 hover:underline">
+                        <LogOut size={16}/>
+                        Cerrar Sesión
                     </button>
                 </div>
             </header>
 
             <main className="max-w-3xl mx-auto p-6">
+                <h2 className="text-2xl font-bold text-center mb-6">
+                    Hola, {session.user.name} 
+                </h2>
                 {/* Formulario crear link */}
                 <div className = "bg-white p-6 rounded-xl shadow-sm mb-6">
                     <h2 className="text-lg font-semibold mb-4">Acortar un enlace</h2>
@@ -84,7 +89,7 @@ export default function Dashboard() {
                             className="flex-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                         <button onClick={handleCreateLink} disabled={loading}
-                            className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition disabled:opacity-50">
+                            className="bg-blue-800 text-white py-2 px-4 rounded-lg hover:bg-blue-900 transition disabled:opacity-50">
                             {loading ? "..." : "Acortar"}
                         </button>
                     </div>

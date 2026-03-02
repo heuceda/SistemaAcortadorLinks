@@ -33,7 +33,7 @@ export default function NotFoundPage() {
           {/* Botón para volver al inicio*/}
           <Link 
             href="/" 
-            className="inline-block bg-slate-900 text-white font-semibold py-3 px-10 rounded-xl hover:bg-blue-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 active:scale-95"
+            className="inline-block bg-blue-800 text-white font-semibold py-3 px-10 rounded-xl hover:bg-blue-900 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 active:scale-95"
           >
             Volver al inicio
           </Link>
